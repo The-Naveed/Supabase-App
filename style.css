@@ -3,3 +3,26 @@ body{
     color: white;
     font-family: monospace;
 }
+
+input, button{
+    margin: 5px;
+    background: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.taskData{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+}
+
+.user{
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+}

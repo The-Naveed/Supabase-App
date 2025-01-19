@@ -8,9 +8,22 @@
     <title>Supabase App</title>
 </head>
 
-<body>
-    <h1>Supabase App</h1>
+<body onload="readata()">
+    <div class="userDataCollect">
+        <div class="">
+            <input type="text" placeholder="Enter Task" id="task">
+            <button onclick="addData()">Submit</button>
+        </div>
+    </div>
+
+    <h3>Task Shows Here : </h3><br>
+
+
+    <div class="taskData" id="taskData">
+
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js" type="module"></script>
+
 </html>

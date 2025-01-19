@@ -75,7 +75,7 @@ const readata = async _ => {
         let user = document.querySelector("#user")
         let taskData = document.querySelector("#taskData")
         let task = document.querySelector("#task").value
-        taskData.innerHTML = `` 
+        taskData.innerHTML = ``
 
         for (let key in data) {
             console.log(data[key]);
@@ -88,63 +88,63 @@ const readata = async _ => {
                     <button onclick="delData(this)">Delete</button>
                 </div>
             `
-            task = document.querySelector("#task").value = ``
-            console.log(error);
+            task = document.querySelector("#task").value = ``;
         }
 
     } catch (error) {
         console.log(error);
     }
 
-}
-
-// readata()
+};
 
 // U P D A T E
 const updateData = async (ele) => {
+
+
     let task = document.querySelector("#task")
+    const found = ele.previousElementSibling.previousElementSibling.innerHTML
     task = document.querySelector("#task").value = ele.previousElementSibling.innerHTML
-    ele.parentElement.remove()
+    let promptValue = prompt("Edit Your Message", task)
+    task = document.querySelector("#task").value = ``
+    
+    
+    try {
+        const { data, error } = await sup
+        .from('data')
+        .update({ firstName: promptValue })
+        .eq('id', found)
+        .select()
+        
+        console.log(data);
+        console.log(error);
 
-    // try {
-    //     const { data, error } = await sup
-    //         .from('data')
-    //         .update({ firstName:ele.previousElementSibling.innerHTML})
-    //         .eq('id', 13)
-    //         .select()
+    } catch (error) {
+        console.log(error);
+    }
 
-    //     console.log(data);
-    //     console.log(error);
-    // } catch (error) {
-    //     console.log(error);
-    // }
-}
-
-// updateData()
+    readata()
+};
 
 // D E L E T E
 const delData = async (ele) => {
-    ele.parentElement.remove()
+    try {
+        const found = ele.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML;
+        const { data, error } = await sup
+            .from('data')
+            .delete()
+            .eq('id', found)
+            .select()
 
-
-    // try {
-    //     const { data, error } = await sup
-    //         .from('data')
-    //         .delete()
-    //         .eq('id', 0)
-    //         .select()
-
-    //     console.log(data);
-    //     console.log(error);
-    // } catch (error) {
-    //     console.log(error);
-    // }
-}
-
-// delData()
-
+        console.log(data);
+        console.log(error);
+    } catch (error) {
+        console.log(error);
+    };
+    readata()
+};
 
 window.addData = addData
 window.delData = delData
 window.updateData = updateData
 window.readata = readata
+window.exUpdateData = exUpdateData

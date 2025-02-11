@@ -82,7 +82,7 @@ const readata = async _ => {
             taskData.innerHTML +=
                 `
                     <div class="user" id="user">
-                    <h3 id="getTask">${data[key].id}</h3>
+                    <h3 id="getTask" class="key">${data[key].id}</h3>
                     <h3 id="getTask">${data[key].firstName}</h3>
                     <button onclick="updateData(this)">Edit</button>
                     <button onclick="delData(this)">Delete</button>
@@ -147,4 +147,4 @@ window.addData = addData
 window.delData = delData
 window.updateData = updateData
 window.readata = readata
-window.exUpdateData = exUpdateData
+// window.exUpdateData = exUpdateData
